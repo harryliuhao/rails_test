@@ -4,13 +4,13 @@ require 'pp'
 class Coursera
 	include HTTParty
 
-	base_uri 'https://restcountries.eu/rest/v2/all'
-	default_params fields: "name;region"
+	base_uri 'https://www.googleapis.com/books/v1/volumes'
+	default_params 
 	format :json
 
 	def self.for term
-		get("", query: { query: term})["elements"]
+		get("", query: { q: term})
 	end
 end
 
-pp Coursera.for "Asia"
+pp Coursera.for "intitle:garden"
