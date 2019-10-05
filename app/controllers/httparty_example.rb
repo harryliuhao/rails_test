@@ -4,8 +4,8 @@ require 'pp'
 class Coursera
 	include HTTParty
 
-	base_uri 'https://api.twitter.com/1.1/search/tweets.json'
-	default_params fields: "lang", q: "search"
+	base_uri 'https://restcountries.eu/rest/v2/all'
+	default_params fields: "name;region"
 	format :json
 
 	def self.for term
@@ -13,4 +13,4 @@ class Coursera
 	end
 end
 
-pp Coursera.for "en"
+pp Coursera.for "Asia"
