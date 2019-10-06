@@ -9,8 +9,10 @@ class Coursera
 	format :json
 
 	def self.for term
-		get("", query: { q: term})
+		get("", query: { q: "intitle:"+term})["items"]
 	end
 end
 
-pp Coursera.for "intitle:garden"
+results=Coursera.for "garden"
+#puts results[0]["volumeInfo"]["title"]
+results.each {|e| puts e["volumeInfo"]["imageLinks"]["smallThumbnail"]}
